@@ -30,4 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  'Are you sure?': "Are you sure?"
+
+  books:
+    create:
+      "Book was successfully created": "Book was successfully created."
+    update:
+      "Book was successfully updated": "Book was successfully updated."
+    destroy:
+      "Book was successfully destroyed": "Book was successfully destroyed."
+
+  errors:
+    template:
+      header:
+        one: "1 error prohibited this %{model} from being saved."
+        other: "%{count} errors prohibited this %{model} from being saved."
