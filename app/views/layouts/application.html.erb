@@ -10,11 +10,14 @@
   </head>
 
   <body>
+  <p class="notice">Noteice: <%= notice %></p>
+  <p class="alert">Alert: <%= alert %></p>
+
   <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+    <p class="alert alert-success">IF Notice: <%= notice %></p>
   <% end %>
   <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
+    <p class="alert alert-danger">IF Alert: <%= alert %></p>
   <% end %>
 
   <p class="navbar-text pull-right">
