@@ -1,5 +1,4 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1><%= User.model_name.human %></h1>
 
 <ul class="users">
   <% @users.each do |user| %>
@@ -8,3 +7,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= paginate @users %>
