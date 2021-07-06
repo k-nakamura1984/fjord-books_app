@@ -1,8 +1,14 @@
 <% provide(:title, @user.name) %>
-<h1><%= User.human_attribute_name(:name) %></h1>
+<h2><%= User.human_attribute_name(:name) %></h2>
 <p><%= @user.name %></p>
 
-<h1><%= User.human_attribute_name(:self_introduction) %></h1>
+<h2><%= User.human_attribute_name(:postcode) %></h2>
+<p><%= @user.postcode %></p>
+
+<h2><%= User.human_attribute_name(:address) %></h2>
+<p><%= @user.address %></p>
+
+<h2><%= User.human_attribute_name(:self_introduction) %></h2>
 <p><%= @user.self_introduction %></p>
 
 <%= link_to t('devise.shared.links.back'), :back %>
