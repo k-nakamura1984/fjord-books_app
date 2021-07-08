@@ -1,10 +1,10 @@
-<%= form_with(model: book, local: true) do |form| %>
-  <% if book.errors.any? %>
+<%= form_with(model: Book, local: true) do |form| %>
+  <% if Book.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t"errors.template.header",model: book.model_name.human, count: book.errors.count%></h2>
+      <h2><%= t"errors.template.header",model: Book.model_name.human, count: Book.errors.count%></h2>
 
       <ul>
-        <% book.errors.full_messages.each do |message| %>
+        <% Book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>

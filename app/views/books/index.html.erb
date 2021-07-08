@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th><%= t :title%></th>
-      <th><%= t :memo%></th>
-      <th><%= t :author%></th>
-      <th><%= t :picture%></th>
+      <th><%= t Book.human_attribute_name('title') %></th>
+      <th><%= t Book.human_attribute_name('memo') %></th>
+      <th><%= t Book.human_attribute_name('author') %></th>
+      <th><%= t Book.human_attribute_name('picture') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
         <td><%= book.picture %></td>
         <td><%= link_to t('button.show'), book %></td>
         <td><%= link_to t('button.edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('button.destroy'), book, method: :delete, data: { confirm: t("Are you sure?")} %></td>
+        <td><%= link_to t('button.destroy'), book, method: :delete, data: { confirm: t('notice.sure')} %></td>
       </tr>
     <% end %>
   </tbody>

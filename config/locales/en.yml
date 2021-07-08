@@ -30,15 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  'Are you sure?': "Are you sure?"
 
-  books:
-    create:
-      "Book was successfully created": "Book was successfully created."
-    update:
-      "Book was successfully updated": "Book was successfully updated."
-    destroy:
-      "Book was successfully destroyed": "Book was successfully destroyed."
+  notice:
+    create: "%{title} was successfully created"
+    update: "%{title} was successfully updated"
+    destroy: "%{title} was successfully destroyed"
+    sure: "Are you sure?"
 
   errors:
     template:
