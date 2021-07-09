@@ -7,6 +7,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+      models:
+        user:
+          attributes:
+            icon:
+              invalid_file_type: はjpeg, jpg, png, gifを選択してください
+              invalid_file_size: は1MB以内にしてください
   date:
     abbr_day_names:
     - 日
