@@ -2,7 +2,7 @@
 
 <p>
   <strong><%= User.human_attribute_name(:icon) %>:</strong>
-  <%= image_tag @user.icon, class: ApplicationController if @user.icon.attached? %>
+  <%= image_tag @user.icon.variant(resize: "64x64"), class: ApplicationController if @user.icon.attached? %>
 </p>
 
 <p>
