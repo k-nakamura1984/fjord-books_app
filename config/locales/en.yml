@@ -30,4 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+
+  notice:
+    create: "%{title} was successfully created"
+    update: "%{title} was successfully updated"
+    destroy: "%{title} was successfully destroyed"
+    sure: "Are you sure?"
+
+  errors:
+    template:
+      header:
+        one: "1 error prohibited this %{model} from being saved."
+        other: "%{count} errors prohibited this %{model} from being saved."
