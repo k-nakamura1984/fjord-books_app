@@ -1,4 +1,13 @@
 <div class="field">
+  <%= f.label :icon %>
+  <% if @user.icon.attached? && !@user.errors.any? %>
+    <%= image_tag @user.icon.variant(resize: "64x64") %>
+  <% end %>
+  <br>
+  <%= f.file_field :icon %>
+</div>
+
+<div class="field">
   <%= f.label :name %>
   <%= f.text_field :name %>
 </div>
