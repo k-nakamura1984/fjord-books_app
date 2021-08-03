@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  before_action :exist_book?, only: %i[show edit update destroy]
   before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books
@@ -62,6 +63,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def exist_book?
+    redirect_to books_path unless Book.find_by(id: params[:id])
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_book

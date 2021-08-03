@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :exist_user?, only: %i[show followings followers]
   before_action :set_user, only: %i[show followings followers]
 
   def index
@@ -20,6 +21,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def exist_user?
+    redirect_to users_path unless User.find_by(id: params[:id])
+  end
 
   def set_user
     @user = User.find(params[:id])
