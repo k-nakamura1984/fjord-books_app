@@ -13,8 +13,30 @@
   <%= @report.created_at.to_s(:datetime_jp) %>
 </p>
 
+<h2>Comments</h2>
+<% @comments.each do |comment| %>
+  <div>
+    <a href="/users/<%= @report.user.id %>">
+      <% if comment.user.name.blank? %>
+        <%= comment.user.email %>
+      <% else %>
+        <%= comment.user.name %>
+      <% end %>
+    </a>
+    <%= comment.content %>
+    <%= comment.created_at.to_s(:datetime_jp) %>
+    <hr>
+  </div>
+<% end %>
+
+<%= form_with(model: [@report, @comment], method: :post) do |form| %>
+  <%= form.text_area :content %>
+  <%= form.hidden_field :report_id, value: @report.id %>
+  <%= form.submit 'Comment' %>
+<% end %>
+
 <% if @report.user == current_user %>
-  <td><%= link_to'Edit', edit_report_path(@report) %></td>
+  <td><%= link_to 'Edit', edit_report_path(@report) %></td>
 <% else %>
   <td></td>
 <% end %>
