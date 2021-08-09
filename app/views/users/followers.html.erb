@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-  <% @followers.includes(:follower_users).each do |user| %>
+  <% @followers.each do |user| %>
     <tr>
       <td>
         <% if user.avatar.attached? %>
