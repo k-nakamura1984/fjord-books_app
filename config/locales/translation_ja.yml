@@ -16,3 +16,14 @@ ja:
         address: 住所
         self_introduction: 自己紹介文
         avatar: ユーザ画像
+        unfollow: アンフォロー
+
+  views:
+    common:
+      follow: フォロー
+      unfollow: フォロー解除
+      followings: フォロー中
+      followers: フォロワー
+    title:
+      followings: "%{name}のフォロー"
+      followers: "%{name}のフォロワー"

@@ -1,5 +1,19 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
+<p><%= link_to "#{@user.following_users.count} #{t("views.common.followings")}", followings_user_path(@user.id) %></p>
+<p><%= link_to "#{@user.follower_users.count} #{t("views.common.followers")}", followers_user_path(@user.id) %></p>
+
+<% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= button_to t('views.common.unfollow'), relationship_path(@relationship), method: :delete %>
+  <% else %>
+    <%= form_for(@user.followers.create) do |f| %>
+      <%= hidden_field_tag :follow_id, @user.id %>
+      <%= f.submit t('views.common.follow'), class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
@@ -29,7 +43,7 @@
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
   <% if @user.avatar.attached? %>
     <br>
-    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) %>
   <% end %>
 </p>
 
