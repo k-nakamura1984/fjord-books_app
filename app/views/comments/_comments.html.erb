@@ -1,0 +1,16 @@
+<h2><%= Comment.model_name.human %></h2>
+
+<% commentable.comments.each do |comment| %>
+  <div>
+    <a href="/users/<%= comment.user.id %>">
+      <% if comment.user.name.blank? %>
+        <%= comment.user.email %>
+      <% else %>
+        <%= comment.user.name %>
+      <% end %>
+    </a>
+    <%= comment.content %>
+    <%= comment.created_at.to_s(:datetime_jp) %>
+    <hr>
+  </div>
+<% end %>

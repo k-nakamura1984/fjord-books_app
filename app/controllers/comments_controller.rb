@@ -2,9 +2,10 @@
 
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.new(comment_params)
+    @comment = @commentable.comments.new(comment_params)
+    @comment.user = current_user
     if @comment.save
-      redirect_back(fallback_location: root_path, notice: t('controllers.common.notice_create', name: Comment.model_name.human))
+      redirect_to @commentable, noteice: 'Your comment was succewwfully posted'
     else
       redirect_back(fallback_location: root_path)
     end
@@ -13,6 +14,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :report_id)
+    params.require(:comment).permit(:content)
   end
 end

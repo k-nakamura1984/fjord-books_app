@@ -8,10 +8,7 @@ class ReportsController < ApplicationController
     @reports = Report.order(:id).page(params[:page])
   end
 
-  def show
-    @comments = @report.comments
-    @comment = current_user.comments.new
-  end
+  def show; end
 
   def new
     @report = Report.new
