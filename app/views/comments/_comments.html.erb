@@ -2,13 +2,9 @@
 
 <% commentable.comments.each do |comment| %>
   <div>
-    <a href="/users/<%= comment.user.id %>">
-      <% if comment.user.name.blank? %>
-        <%= comment.user.email %>
-      <% else %>
-        <%= comment.user.name %>
-      <% end %>
-    </a>
+    <%= link_to user_path(comment.user) do %>
+      <%= comment.user.name.presence || comment.user.email %>
+    <% end %>
     <%= comment.content %>
     <%= comment.created_at.to_s(:datetime_jp) %>
     <hr>

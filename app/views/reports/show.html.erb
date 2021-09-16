@@ -18,11 +18,8 @@
 <%= render partial: "comments/comments", locals: { commentable: @report } %>
 <%= render partial: "comments/form", locals: { commentable: @report } %>
 
-
 <% if @report.user == current_user %>
   <td><%= link_to t('views.common.edit'), edit_report_path(@report) %></td>
-<% else %>
-  <td></td>
 <% end %>
 
 <%= link_to t('views.common.back'), reports_path %>
