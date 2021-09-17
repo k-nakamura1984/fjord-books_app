@@ -2,11 +2,20 @@
 
 <% commentable.comments.each do |comment| %>
   <div>
-    <%= link_to user_path(comment.user) do %>
-      <%= comment.user.name.presence || comment.user.email %>
+    <%#= link_to user_path(comment.user) do %>
+      <%#= comment.user.name.presence || comment.user.email %>
+    <%# end %>
+
+    <% if comment.user.present? %>
+      <%= link_to user_path(comment.user) do %>
+        <%= comment.user.name.presence || comment.user.email %>
+      <% end %>
+    <% else %>
+      退会ユーザー
     <% end %>
+
     <%= comment.content %>
     <%= comment.created_at.to_s(:datetime_jp) %>
-    <hr>
-  </div>
 <% end %>
+</div>
+<hr>
