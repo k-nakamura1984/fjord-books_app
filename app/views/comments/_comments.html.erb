@@ -2,10 +2,6 @@
 
 <% commentable.comments.each do |comment| %>
   <div>
-    <%#= link_to user_path(comment.user) do %>
-      <%#= comment.user.name.presence || comment.user.email %>
-    <%# end %>
-
     <% if comment.user.present? %>
       <%= link_to user_path(comment.user) do %>
         <%= comment.user.name.presence || comment.user.email %>
