@@ -82,6 +82,7 @@ User.transaction do
   end
 end
 
+# ユーザーアイコンをネットから取得する際にサーバーでエラーが起きたため停止。
 # User.order(:id).each do |user|
 #   image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
 #   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')

@@ -16,5 +16,6 @@ class ReportTest < ActiveSupport::TestCase
 
   test '#created_on' do
     assert @report.created_on.instance_of?(Date)
+    assert_equal @report.created_on, @report.created_at.to_date
   end
 end

@@ -10,16 +10,15 @@ class UserTest < ActiveSupport::TestCase
 
   test '#following?' do
     @alice.follow(@bob)
-    assert Relationship.where(following_id: @bob).exists?
+    assert @alice.following?(@bob)
   end
 
   test '#followed_by?' do
     @bob.follow(@alice)
-    assert Relationship.where(follower_id: @bob).exists?
+    assert @alice.followed_by?(@bob)
   end
 
   test '#follow' do
-    assert_not @alice.following?(@bob)
     @alice.follow(@bob)
     assert @alice.following?(@bob)
   end
